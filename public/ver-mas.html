@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Pokémon</title>
+    <link rel="stylesheet" href="css/style2.css"> <!-- Asegúrate de enlazar tu archivo CSS -->
+</head>
+<body>
+    <div id="pokemonDetalle"></div>
+    <div class="button-container">
+        <button class="delete-button" id="deleteButton">Eliminar Pokémon</button>
+        <button class="edit-button" id="editButton">Editar Pokémon</button>
+        
+    </div>
+    <script src="js/verMas.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const params = new URLSearchParams(window.location.search);
+            const pokemonId = params.get('id');
+
+            if (pokemonId) {
+                fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
+                    .then(response => response.json())
+                    .then(data => mostrarDetalles(data));
+            }
+
+            function fetchPokemonDetails() {
+                fetch(`/application/controllers/getPokemonById.php?id=${pokemonId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const pokemonDetailsContainer = document.getElementById('pokemon-details');
+                        pokemonDetailsContainer.innerHTML = `
+                            <h3>Name: ${data.name}</h3>
+                            <p>Type: ${data.tipo_pokemon}</p>
+                            <p>Secondary Type: ${data.tipo2_pokemon}</p>
+                            <img src="${data.photo_url}" alt="${data.name}">
+                        `;
+                    })
+                    .catch(error => console.error('Error fetching pokemon details:', error));
+            }
+
+            // Fetch Pokémon details when the page loads
+            fetchPokemonDetails();
+
+            // Add event listener for the delete button
+            document.getElementById('deleteButton').addEventListener('click', () => {
+                if (confirm('Are you sure you want to delete this Pokémon?')) {
+                    fetch(`/application/controllers/deletePokemon.php?id=${pokemonId}`, {
+                        method: 'DELETE'
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            alert('Pokémon deleted successfully.');
+                            window.location.href = '/pokemon-list.html'; // Redirect to the Pokémon list page
+                        } else {
+                            throw new Error('Failed to delete Pokémon.');
+                        }
+                    })
+                    .catch(error => console.error('Error deleting Pokémon:', error));
+                }
+            });
+
+            // Add event listener for the edit button
+            document.getElementById('editButton').addEventListener('click', () => {
+                window.location.href = `/Aplication/views/edit.html?id=${pokemonId}`;
+            });
+        });
+    </script>
+</body>
+</html>

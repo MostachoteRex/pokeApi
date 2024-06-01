@@ -1,0 +1,65 @@
+<!-- add-pokemon.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style3.css">
+    <title>Añadir Pokémon</title>
+</head>
+<body>
+    <div class="container">
+        <form class="edit-form" action="/Aplication/controllers/addPokemon.php" id="addPokemonForm">
+            <h2>Añadir Nuevo Pokémon</h2>
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="tipo_pokemon">Tipo 1:</label>
+            <select id="tipo_pokemon" name="tipo_pokemon" required>
+                <option value="fire">Fire</option>
+                <option value="water">Water</option>
+                <option value="grass">Grass</option>
+                <option value="Electric">Electric</option>
+                <option value="Ice">Ice</option>
+                <option value="Fighting">Fighting</option>
+                <option value="Poison">Poison</option>
+                <option value="Ground">Ground</option>
+                <option value="Flying">Flying</option>
+                <option value="Psychic">Psychic</option>
+                <option value="Bug">Bug</option>
+                <option value="Rock">Rock</option>
+                <option value="Ghost">Ghost</option>
+                <option value="Dark">Dark</option>
+                <option value="Dragon">Dragon</option>
+                <option value="Steel">Steel</option>
+                <option value="Fairy">Fairy</option>
+            </select>
+
+            <label for="tipo2_pokemon">Tipo 2:</label>
+            <select id="tipo2_pokemon" name="tipo2_pokemon">
+                <option value="none">None</option>
+                <option value="fire">Fire</option>
+                <option value="water">Water</option>
+                <option value="grass">Grass</option>
+                <option value="Electric">Electric</option>
+                <option value="Ice">Ice</option>
+                <option value="Fighting">Fighting</option>
+                <option value="Poison">Poison</option>
+                <option value="Ground">Ground</option>
+                <option value="Flying">Flying</option>
+                <option value="Psychic">Psychic</option>
+                <option value="Bug">Bug</option>
+                <option value="Rock">Rock</option>
+                <option value="Ghost">Ghost</option>
+                <option value="Dark">Dark</option>
+                <option value="Dragon">Dragon</option>
+                <option value="Steel">Steel</option>
+                <option value="Fairy">Fairy</option>
+            </select>
+            <label for="foto_pokemon">Foto:</label>
+            <input type="file" id="foto_pokemon" name="foto_pokemon" required>
+            <input type="submit" value="Añadir Pokémon">
+        </form>
+    </div>
+    <script src="/public/js/addPokemon.js"></script>
+</body>
+</html>

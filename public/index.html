@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Pokémon List</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header-container">
+            <img src="img/logo.png" alt="" width="20%">
+            <div class="search-container">
+                <input type="text" id="pokemonInput" placeholder="Ingresa el nombre">
+                <button id="searchButton">Buscar</button>
+                <label for="filterType" style="padding-left: 5px;">Tipo</label>
+                <select id="filterType" onchange="filterPokemonList()">
+                    <option value="">Select</option>
+                    <option value="fire">Fire</option>
+                    <option value="water">Water</option>
+                    <option value="grass">Grass</option>
+                    <option value="Electric">Electric</option>
+                    <option value="Ice">Ice</option>
+                    <option value="Fighting">Fighting</option>
+                    <option value="Poison">Poison</option>
+                    <option value="Ground">Ground</option>
+                    <option value="Flying">Flying</option>
+                    <option value="Psychic">Psychic</option>
+                    <option value="Bug">Bug</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Ghost">Ghost</option>
+                    <option value="Dark">Dark</option>
+                    <option value="Dragon">Dragon</option>
+                    <option value="Steel">Steel</option>
+                    <option value="Fairy">Fairy</option>
+                </select>
+                <label for="filterMove">Movimiento</label>
+                <select id="filterMove" onchange="filterPokemonList()">
+                    <option value="">Select</option>
+                    <option value="tackle">Tackle</option>
+                    <option value="burst">Burst</option>
+                    <option value="quick-punch">Quick Punch</option>
+                    <option value="vine-whip">Vine Whip</option>
+                    <option value="thunderbolt">Thunderbolt</option>
+                    <option value="cut">Cut</option>
+                    <option value="psychic">Psychic</option>
+                    <option value="mud-bomb">Mud Bomb</option>
+                    <option value="fire-punch">Fire Punch</option>
+                    <option value="endure">Endure</option>
+                    <option value="cross-slash">Cross Slash</option>
+                    <option value="wing-attack">Wing Attack</option>
+                </select>
+            </div>
+        </div>
+        <div class="sort-container" style="margin-bottom: 10px;">
+            <label for="sortOptions">Ordenar por:</label>
+            <select id="sortOptions" onchange="sortPokemonList()">
+                <option value="numberAsc">Número Ascendente</option>
+                <option value="numberDesc">Número Descendente</option>
+                <option value="nameAsc">Nombre Ascendente</option>
+                <option value="nameDesc">Nombre Descendente</option>
+            </select>
+        </div>
+        <div id="result" class="result"></div>
+        <div id="todos">
+            <div class="pokemon-todos" id="listaPokemon"></div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/buscador.js"></script>
+</body>
+</html>

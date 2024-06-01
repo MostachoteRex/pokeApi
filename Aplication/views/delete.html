@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/style2.css">
+    <title>Delete Pokémon</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Delete Pokémon</h2>
+        <form action="/Aplication/controllers/deletePokemon.php" method="post">
+            <label for="id">ID del Pokémon a eliminar:</label>
+            <input type="text" name="id" id="id" required>
+            <input type="submit" value="Eliminar">
+        </form>
+    </div>
+</body>
+</html>

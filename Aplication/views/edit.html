@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/style4.css">
+    <title>Edit Pokémon</title>
+</head>
+<body>
+    <div class="container">
+        <form class="edit-form" action="/Aplication/controllers/editPokemon.php" method="POST" enctype="multipart/form-data">
+            <h2>Edit Pokémon</h2>
+            <input type="hidden" id="id" name="id">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="tipo_pokemon">Type:</label>
+                <select id="tipo_pokemon" name="tipo_pokemon" required>
+                    <option value="fire">Fire</option>
+                    <option value="water">Water</option>
+                    <option value="grass">Grass</option>
+                    <option value="Electric">Electric</option>
+                    <option value="Ice">Ice</option>
+                    <option value="Fighting">Fighting</option>
+                    <option value="Poison">Poison</option>
+                    <option value="Ground">Ground</option>
+                    <option value="Flying">Flying</option>
+                    <option value="Psychic">Psychic</option>
+                    <option value="Bug">Bug</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Ghost">Ghost</option>
+                    <option value="Dark">Dark</option>
+                    <option value="Dragon">Dragon</option>
+                    <option value="Steel">Steel</option>
+                    <option value="Fairy">Fairy</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="tipo2_pokemon">Secondary Type:</label>
+                <select id="tipo2_pokemon" name="tipo2_pokemon">
+                    <option value="none">None</option>
+                    <option value="fire">Fire</option>
+                    <option value="water">Water</option>
+                    <option value="grass">Grass</option>
+                    <option value="Electric">Electric</option>
+                    <option value="Ice">Ice</option>
+                    <option value="Fighting">Fighting</option>
+                    <option value="Poison">Poison</option>
+                    <option value="Ground">Ground</option>
+                    <option value="Flying">Flying</option>
+                    <option value="Psychic">Psychic</option>
+                    <option value="Bug">Bug</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Ghost">Ghost</option>
+                    <option value="Dark">Dark</option>
+                    <option value="Dragon">Dragon</option>
+                    <option value="Steel">Steel</option>
+                    <option value="Fairy">Fairy</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="foto_pokemon">Photo:</label>
+                <input type="file" id="foto_pokemon" name="foto_pokemon">
+            </div>
+            <button type="submit">Update Pokémon</button>
+        </form>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+
+            fetch(`/application/controllers/getPokemonById.php?id=${id}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('id').value = data.id;
+                    document.getElementById('name').value = data.name;
+                    document.getElementById('tipo_pokemon').value = data.tipo_pokemon;
+                    document.getElementById('tipo2_pokemon').value = data.tipo2_pokemon;
+                })
+                .catch(error => console.error('Error fetching pokemon:', error));
+        });
+    </script>
+</body>
+</html>
