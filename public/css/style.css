@@ -302,3 +302,42 @@ select option {
 .pokemon-id-back {
     display: none;
 }
+
+@media (min-width: 600px) {
+    .search-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .search-container input,
+    .search-container button,
+    .search-container select {
+        width: auto;
+        flex: 1;
+        margin: 5px;
+    }
+
+    .header-container {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .header-container img {
+        width: 20%;
+    }
+}
+
+@media (min-width: 768px) {
+    .search-container {
+        justify-content: center;
+    }
+
+    .header-container {
+        justify-content: space-between;
+    }
+
+    .header-container img {
+        width: 15%;
+    }
+}

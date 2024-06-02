@@ -32,7 +32,7 @@ class PokemonRepository {
 
     public function update($id, $name, $tipo_pokemon, $tipo2_pokemon, $foto_pokemon) {
         if ($foto_pokemon) {
-            $stmt = $this->conn->prepare('UPDATE pokemons SET name = :name, tipo_pokemon = :tipo_pokemon, tipo2_pokemon = :tipo2_pokemon, foto_pokemon = :foto_pokemon WHERE id = :id');
+            $stmt = $this->conn->prepare('UPDATE pokemons SET na~me = :name, tipo_pokemon = :tipo_pokemon, tipo2_pokemon = :tipo2_pokemon, foto_pokemon = :foto_pokemon WHERE id = :id');
             $stmt->bindParam(':foto_pokemon', $foto_pokemon);
         } else {
             $stmt = $this->conn->prepare('UPDATE pokemons SET name = :name, tipo_pokemon = :tipo_pokemon, tipo2_pokemon = :tipo2_pokemon WHERE id = :id');

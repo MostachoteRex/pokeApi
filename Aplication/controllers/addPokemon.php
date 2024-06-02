@@ -1,5 +1,5 @@
 <?php
-require_once '../../infraestructure/repositories/PokemonRepository.php';
+require_once '../../resources/PokemonRepository.php';
 
 $name = $_POST['name'];
 $tipo_pokemon = $_POST['tipo_pokemon'];
